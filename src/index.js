@@ -6,16 +6,40 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { reducer as formReducer } from 'redux-form';
 import reportWebVitals from './reportWebVitals';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const rootReducer = combineReducers({
   form: formReducer
 });
 
+const theme = createMuiTheme({
+  overrides: {
+    MuiFormControl: {
+      root: {
+        '& p': {
+          fontSize: 12,
+          border: 0,
+          marginTop: 2,
+          padding: 0
+        }
+      }
+    },
+    MuiSelect: {
+      select: {
+        paddingBotton: 10
+      }
+    }
+  }
+})
+
 const store = createStore(rootReducer);
 ReactDOM.render(
   <Provider store={store}>
   <React.StrictMode>
+  <MuiThemeProvider theme={theme}>
+
     <App />
+    </MuiThemeProvider>
   </React.StrictMode>
   </Provider>,
   document.getElementById('root')
