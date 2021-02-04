@@ -4,6 +4,8 @@ import FileDetails from './FileDetails';
 import StaffList from './StaffList';
 import NotesManager from './NotesManager';
 import AppProcessStage from './AppProcessStage';
+import FormCode from './FormCode';
+
 class App extends Component {
   state = {
       filedetails: {
@@ -21,6 +23,11 @@ render() {
     <div className="App">
         <h1 className="App-title">Welcome to App Tracker</h1>
     {/* Pass props twice */}
+    <div className="container">
+        <h3 className="jumbotron">Redux Form Validation</h3>
+        <FormCode onSubmit={this.submit} />
+      </div>
+    
     <FileDetails
         filedetails={this.state.filedetails}  onChange={this.handleChange.bind(this)}
     />
