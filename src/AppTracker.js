@@ -3,6 +3,7 @@ import BillingDetails from './BillingDetails';
 import MultipleItemStatus from './MultipleItemStatus';
 import MailScreening from './MailScreening';
 import PreScreening from './PreScreening';
+import DocumentReview from './DocumentReview';
 
 const AppTracker = props => {
     
@@ -20,7 +21,7 @@ const AppTracker = props => {
       {/************ */}
       <BillingDetails/>
       {/************ */}
-      
+      <DocumentReview/>
 <MultipleItemStatus/>
 
        </div>

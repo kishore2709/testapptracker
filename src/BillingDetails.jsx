@@ -39,17 +39,7 @@ const BillingDetails = props => {
       </div>
       </div>
       {/************ */}
-      <div>
-      <h3>Document Review</h3>
-      <div>
-      <h3>Display uploaded docs</h3>
-        <Field
-          name="displaydoc"
-          component={renderTextField}
-          label="Displays uploaded docs"
-        />
-      </div>
-      </div>
+    
   
 </Fragment>
 );
