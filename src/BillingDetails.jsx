@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import { Field } from 'redux-form';
-import TextField from '@material-ui/core/TextField';
+import React, { Fragment } from "react";
+import { Field } from "redux-form";
+import TextField from "@material-ui/core/TextField";
 
 const renderTextField = ({
   label,
@@ -16,32 +16,31 @@ const renderTextField = ({
     {...input}
     {...custom}
   />
-)
-const BillingDetails = props => {
-    return (
+);
+const BillingDetails = (props) => {
+  return (
     <Fragment>
-  <div>
-      <h3>Billing Details</h3>
       <div>
-      <h3>Enter PID/check info</h3>
-        <Field
-          name="pidcheckno"
-          component={renderTextField}
-          label="Enter PID/check info"
-        />
-         <h3>Enter Amount</h3>
-        <Field
-          name="enteramount"
-          component={renderTextField}
-          label="Enter Amount"
-        />
-         <h3>Spilt Amount - opens dialog box</h3>
-      </div>
+        <h3>Billing Details</h3>
+        <div>
+          Enter PID/check info
+          <Field
+            name="pidcheckno"
+            component={renderTextField}
+            label="Enter PID/check info"
+          />
+          <br />
+          Enter Amount
+          <Field
+            name="enteramount"
+            component={renderTextField}
+            label="Enter Amount"
+          />
+          <h3>Spilt Amount - opens dialog box</h3>
+        </div>
       </div>
       {/************ */}
-    
-  
-</Fragment>
-);
-}
-export default  BillingDetails ;
+    </Fragment>
+  );
+};
+export default BillingDetails;
