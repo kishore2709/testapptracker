@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
-import { Field } from "redux-form";
+import AddNewForm from './AddNewForm';
 import Grid from "@material-ui/core/Grid";
+import ViewNotes from './ViewNotes';
 
 import TextField from "@material-ui/core/TextField";
 
@@ -25,14 +26,8 @@ const NotesManager = (props) => {
       <Grid container>
         <Grid item xs={12}>
           <label>Note Management</label>
-          <Field
-            name="notes"
-            component={renderTextField}
-            label="Notes"
-            multiline
-            rowsMax="4"
-            margin="normal"
-          />
+          <AddNewForm/>
+          <ViewNotes/>
         </Grid>
       </Grid>
     </Fragment>

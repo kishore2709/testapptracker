@@ -38,12 +38,15 @@ const PreScreening = (props) => (
     <div>
       <h2> Pre Screening</h2>
       <div>
-        Search Company
+      Enter
         <Field
           name="companyACN"
           component={renderTextField}
-          label="Enter ACN"
+          label="Company ACN/Name"
         />
+         <button type="submit" >
+              Search
+            </button>
         <h3>Or Flag as New Company</h3>
         <Field
           name="newcompany"

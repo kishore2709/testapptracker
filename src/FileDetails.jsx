@@ -9,6 +9,10 @@ import { Field } from "redux-form";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Grid from "@material-ui/core/Grid";
+import {KeyboardDatePicker,MuiPickersUtilsProvider} from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
+import AddNewForm from './AddNewForm';
+
 /*
  filedetails: {
           details: { complete: 'yes', incomplete: 'no' },
@@ -80,6 +84,13 @@ const renderSelectField = ({
 );
 
 const FileDetails = (props) => {
+  const [selectedDate, setSelectedDate] = React.useState(new Date('2021-02-05T21:11:54'));
+ 
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
   const { handleSubmit, pristine, reset, submitting, classes } = props;
   return (
     <Fragment>
@@ -87,13 +98,24 @@ const FileDetails = (props) => {
         <Grid container>
           <Grid item xs={3}>
             <div>
-              <label>To Date:</label>
-              <Field
-                name="fromDate"
-                component={renderTextField}
-                label="mm/dd/yyyy"
-              />
+           
+       
+       <MuiPickersUtilsProvider utils={DateFnsUtils}>
+       From Date: 
+       <KeyboardDatePicker
+         margin="normal"
+         id="date-picker-dialog"
+         label="Date picker dialog"
+         format="MM/dd/yyyy"
+         value={selectedDate}
+         onChange={handleDateChange}
+         KeyboardButtonProps={{
+           'aria-label': 'change date',
+         }}
+       />
+</MuiPickersUtilsProvider>
             </div>
+    
           </Grid>
           <Grid item xs={3}>
             <label>Application Status </label>
@@ -111,17 +133,36 @@ const FileDetails = (props) => {
               <option value={5}>Closed out</option>
             </Field>
           </Grid>
+          
         </Grid>
         <Grid container>
           <Grid item xs={3}>
             <div>
-              <label>To Date:</label>
-              <Field
-                name="toDate"
-                component={renderTextField}
-                label="mm/dd/yyyy"
-              />
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+           To Date:
+        <KeyboardDatePicker
+          margin="normal"
+          id="date-picker-dialog"
+          label="Date picker dialog"
+          format="MM/dd/yyyy"
+          value={selectedDate}
+          onChange={handleDateChange}
+          KeyboardButtonProps={{
+            'aria-label': 'change date',
+          }}
+        />
+        </MuiPickersUtilsProvider>
+
             </div>
+          </Grid>
+          <Grid item xs={3}>
+            <label>Enter </label>
+          
+        <Field
+          name="companyACN"
+          component={renderTextField}
+          label="Company ACN/Name"
+        />
           </Grid>
           <br />
         </Grid>
@@ -153,9 +194,7 @@ const FileDetails = (props) => {
             </button>
           </Grid>
           <Grid item xs={1}>
-            <button type="button" disabled={pristine || submitting}>
-              Add New
-            </button>
+            <AddNewForm/>
           </Grid>
         </Grid>
       </div>
