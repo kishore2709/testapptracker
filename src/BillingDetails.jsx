@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Field } from "redux-form";
 import TextField from "@material-ui/core/TextField";
-
+import SplitAmount from './SplitAmount';
 const renderTextField = ({
   label,
   input,
@@ -36,7 +36,7 @@ const BillingDetails = (props) => {
             component={renderTextField}
             label="Enter Amount"
           />
-          <h3>Spilt Amount - opens dialog box</h3>
+          <SplitAmount/>
         </div>
       </div>
       {/************ */}
