@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
-import AddNewForm from './AddNewForm';
+import AddNotes from "./AddNotes";
 import Grid from "@material-ui/core/Grid";
-import ViewNotes from './ViewNotes';
+import ViewNotes from "./ViewNotes";
 
 import TextField from "@material-ui/core/TextField";
 
@@ -26,8 +26,8 @@ const NotesManager = (props) => {
       <Grid container>
         <Grid item xs={12}>
           <label>Note Management</label>
-          <AddNewForm/>
-          <ViewNotes/>
+          <AddNotes />
+          <ViewNotes />
         </Grid>
       </Grid>
     </Fragment>
