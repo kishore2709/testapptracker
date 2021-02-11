@@ -5,8 +5,10 @@ import MailScreening from "./MailScreening";
 import PreScreening from "./PreScreening";
 import DocumentReview from "./DocumentReview";
 import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
 import { Divider } from "@material-ui/core";
+import DataEntry from "./DataEntry";
+import AddNotes from "./AddNotes";
+import ViewNotes from "./ViewNotes";
 
 const AppTracker = (props) => {
   const { handleSubmit, pristine, reset, submitting, classes } = props;
@@ -28,6 +30,7 @@ const AppTracker = (props) => {
             </Grid>
             {/************ */}
             <Grid item xs={3}>
+            <DataEntry />
               <BillingDetails />
             </Grid>
             {/************ */}
@@ -40,6 +43,14 @@ const AppTracker = (props) => {
         </Grid>
         <br />
         <br />
+        <Grid item xs={12}>
+        <h3>Note Management</h3>
+          <AddNotes />
+          <ViewNotes />
+        </Grid>
+        <br/>
+        <br/>
+        
         <Grid item xs={12}>
           <div>
             <button type="submit" disabled={pristine || submitting}>

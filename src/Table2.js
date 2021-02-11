@@ -7,7 +7,9 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import rows from "./rowsData";
 
-export default () => (
+const Table2= (props) => {
+  const {filedata} = props;
+  return(
   <div>
     <Paper className="container">
       <Table>
@@ -21,7 +23,7 @@ export default () => (
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(({ id, sid, fno, acn, companyname, appdate }) => (
+          {filedata.filesList.map(({ id, sid, fno, acn, companyname, appdate }) => (
             <TableRow key={id}>
               <TableCell component="th" scope="row">
                 {sid}
@@ -37,3 +39,5 @@ export default () => (
     </Paper>
   </div>
 );
+          }
+          export default Table2;

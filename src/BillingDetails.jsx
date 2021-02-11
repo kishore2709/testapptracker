@@ -1,7 +1,22 @@
 import React, { Fragment } from "react";
 import { Field } from "redux-form";
 import TextField from "@material-ui/core/TextField";
-import SplitAmount from './SplitAmount';
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+
+const renderCheckbox = ({ input, label }) => (
+  <div>
+    <FormControlLabel
+      control={
+        <Checkbox
+          checked={input.value ? true : false}
+          onChange={input.onChange}
+        />
+      }
+      label={label}
+    />
+  </div>
+);
 const renderTextField = ({
   label,
   input,
@@ -23,11 +38,11 @@ const BillingDetails = (props) => {
       <div>
         <h3>Billing Details</h3>
         <div>
-          Enter PID/check info
+          Enter Invoice No
           <Field
-            name="pidcheckno"
+            name="invoiceno"
             component={renderTextField}
-            label="Enter PID/check info"
+            label="Enter Invoice No"
           />
           <br />
           Enter Amount
@@ -36,7 +51,13 @@ const BillingDetails = (props) => {
             component={renderTextField}
             label="Enter Amount"
           />
-          <SplitAmount/>
+           <Field
+          name="invoiceSent"
+          component={renderCheckbox}
+          label="Billing Invoice Sent"
+        />
+        
+           <p>Invoice details entered by: test user</p>
         </div>
       </div>
       {/************ */}

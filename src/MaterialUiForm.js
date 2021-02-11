@@ -1,11 +1,9 @@
 import React from "react";
 import { reduxForm } from "redux-form";
 import asyncValidate from "./asyncValidate";
-import Table from "./Table";
+import Table2 from "./Table2";
 import FileDetails from "./FileDetails";
 import AppTracker from "./AppTracker";
-import NotesManager from "./NotesManager";
-import FileAssignment from "./FileAssignment";
 import Grid from "@material-ui/core/Grid";
 
 const validate = (values) => {
@@ -32,7 +30,8 @@ const validate = (values) => {
 };
 
 const MaterialUiForm = (props) => {
-  const { handleSubmit, pristine, reset, submitting, classes } = props;
+  //console.log(props.filedata);
+  const {filedata, handleSubmit} = props;
   return (
     <form onSubmit={handleSubmit}>
       {/************ */}
@@ -51,7 +50,7 @@ const MaterialUiForm = (props) => {
           <Grid container>
             <Grid item xs={3}></Grid>
             <Grid item xs={6}>
-              <Table />
+              <Table2 filedata={filedata}/>
             </Grid>
             <Grid item xs={3}></Grid>
           </Grid>
@@ -62,12 +61,7 @@ const MaterialUiForm = (props) => {
       <br />
       <Grid container>
         <Grid item xs={2}></Grid>
-        <Grid item xs={6}>
-          <FileAssignment />
-        </Grid>
-        <Grid item xs={3}>
-          <NotesManager />
-        </Grid>
+       
       </Grid>
       <Grid container>
         <AppTracker />

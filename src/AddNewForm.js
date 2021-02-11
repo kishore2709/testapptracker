@@ -6,6 +6,8 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import { Field } from "redux-form";
+import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 
 export default function AddNewForm() {
   const [open, setOpen] = React.useState(false);
@@ -17,7 +19,6 @@ export default function AddNewForm() {
   const handleClose = () => {
     setOpen(false);
   };
-
   return (
     <div>
       <button type="submit" onClick={handleClickOpen}>
@@ -69,6 +70,23 @@ export default function AddNewForm() {
             fullWidth
           />
           <br />
+          Drag and Drop your files here
+             <TextareaAutosize
+            autoFocus
+            margin="dense"
+            id="note"
+            label="Note"
+            rowsMin={6}
+            fullWidth
+          />
+             <br />
+             Or Click below for file upload
+            <br />
+            
+            <button type="submit">
+              File Upload
+            </button>
+            <br />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">

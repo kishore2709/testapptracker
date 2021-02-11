@@ -19,9 +19,8 @@ const renderCheckbox = ({ input, label }) => (
 const MultipleItemStatus = props => (
     <Fragment>
    <div>
-      <h3>Multiple Statuses</h3>
+      <h3>Issuance & Closeout Status</h3>
       <div>
-      <Field name="paymentStatus" component={renderCheckbox} label="Payment Status" />
       <Field name="issuanceStatus" component={renderCheckbox} label="Issuance Status" />
       <Field name="closeoutStatus" component={renderCheckbox} label="Closeout Status" />
       </div>

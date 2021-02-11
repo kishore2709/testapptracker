@@ -82,16 +82,46 @@ const renderSelectField = ({
     {renderFromHelper({ touched, error })}
   </FormControl>
 );
-
+const newFileData =[{
+  sid : 2234,
+  fno : 2234,
+  acn : 'ACN-1234',
+  companyname : 'SunBelt 1',
+  appdate : '02/06/2021'
+  }, {
+    sid : 3235,
+    fno : 3235,
+    acn : 'ACN-1235',
+    companyname : 'SunBelt 2',
+    appdate : '02/07/2021'
+    },
+    {
+      sid : 4236,
+      fno : 4236,
+      acn : 'ACN-1236',
+      companyname : 'SunBelt 3',
+      appdate : '02/08/2021'
+      }];
 const FileDetails = (props) => {
   const [selectedDate, setSelectedDate] = React.useState(new Date('2021-02-05T21:11:54'));
+  const [filesList, setFilesList] = React.useState();
  
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
-
-  const { handleSubmit, pristine, reset, submitting, classes } = props;
+  
+  const handleSearch = (e) => {
+    e.preventDefault();
+    console.log("In Search");
+   // setFilesList(...filesList,newFileData);
+    //setTimeout(() => {
+    //  this.setState({results: [0, 1, 2, 3, 4]})
+   // }, 1000)
+  }
+  
+  
+  const {classes } = props;
   return (
     <Fragment>
       <div>
@@ -189,7 +219,7 @@ const FileDetails = (props) => {
 
         <Grid container justifyContent="center">
           <Grid item xs={1}>
-            <button type="submit" disabled={pristine || submitting}>
+            <button type="submit" onClick={handleSearch}>
               Search
             </button>
           </Grid>
