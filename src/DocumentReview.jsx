@@ -75,7 +75,7 @@ return (
     <div>
     <h3>Clone the App</h3>
     <button type="submit">
-    Clone Submit
+    Clone Button
             </button>
       <h3>Document Review</h3>
       <div>
@@ -113,14 +113,14 @@ return (
   <option value={4}>Perp Staff</option>
 </Field>
 <Field
-          name="preScreening"
+          name="fileAssigned"
           component={renderCheckbox}
           label="File Assigned"
         />
         
 <h3>Waiting Payment</h3>
         <Field
-          name="preScreening"
+          name="payReceived"
           component={renderCheckbox}
           label="Payment Received"
         />

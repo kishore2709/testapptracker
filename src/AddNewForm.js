@@ -9,6 +9,23 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { Field } from "redux-form";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+
+const renderCheckbox = ({ input, label }) => (
+  <div>
+    <FormControlLabel
+      control={
+        <Checkbox
+          checked={input.value ? true : false}
+          onChange={input.onChange}
+        />
+      }
+      label={label}
+    />
+  </div>
+);
+
 export default function AddNewForm() {
   const [open, setOpen] = React.useState(false);
 
@@ -52,14 +69,12 @@ export default function AddNewForm() {
             fullWidth
           />
           <br />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="companyname"
-            label="Company Name"
-            type="text"
-            fullWidth
-          />
+          <Field
+          name="newCompany"
+          component={renderCheckbox}
+          label="Flag as new Company"
+        />
+        
           <br />
           <TextField
             autoFocus

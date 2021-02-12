@@ -1,8 +1,10 @@
 import './App.css';
 import {Component} from 'react';
-import MaterialUiForm from './MaterialUiForm';
-
-
+import Table2 from "./Table2";
+import FileDetails from "./FileDetails";
+import AppTracker from "./AppTracker";
+import Grid from "@material-ui/core/Grid";
+import { reduxForm } from "redux-form";
 class App extends Component {
   state = {
       filedetails: {
@@ -40,16 +42,49 @@ render() {
   return (
     <div className="App">
         <h1 className="App-title">Welcome to App Tracker</h1>
-    {/* Pass props twice 
-    <div className="container">
-        <FormCode onSubmit={this.submit} />
+
+<form onSubmit={this.submit}>
+      {/************ */}
+      <div>
+        <h3>Files Search </h3>
+        {/************ */}
+        <Grid container>
+          <Grid item xs={4}></Grid>
+          <Grid item xs={8}>
+            <FileDetails />
+          </Grid>
+        </Grid>
+        {/************ */}
+        <div>
+          <h3>Files Table </h3>
+          <Grid container>
+            <Grid item xs={3}></Grid>
+            <Grid item xs={6}>
+              <Table2 filedata={this.state}/>
+            </Grid>
+            <Grid item xs={3}></Grid>
+          </Grid>
+        </div>
       </div>
-    
-      <h2>Form </h2>
-*/}
-<MaterialUiForm filedata={this.state} onSubmit={this.submit} />
+      {/************ */}
+      <br />
+      <br />
+      <Grid container>
+        <Grid item xs={2}></Grid>
+       
+      </Grid>
+      <Grid container>
+        <AppTracker />
+      </Grid>
+      <br />
+      <br />
+    </form>
 </div>
   );
 }
 }
-export default App;
+
+export default reduxForm({
+  form: "App", // a unique identifier for this form
+})(App);
+

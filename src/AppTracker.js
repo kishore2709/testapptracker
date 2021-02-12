@@ -7,8 +7,8 @@ import DocumentReview from "./DocumentReview";
 import Grid from "@material-ui/core/Grid";
 import { Divider } from "@material-ui/core";
 import DataEntry from "./DataEntry";
-import AddNotes from "./AddNotes";
-import ViewNotes from "./ViewNotes";
+import Notes from "./notes";
+
 
 const AppTracker = (props) => {
   const { handleSubmit, pristine, reset, submitting, classes } = props;
@@ -45,8 +45,10 @@ const AppTracker = (props) => {
         <br />
         <Grid item xs={12}>
         <h3>Note Management</h3>
-          <AddNotes />
-          <ViewNotes />
+          <Notes/>
+          <button type="submit" disabled={pristine || submitting}>
+              Add New Note
+            </button>
         </Grid>
         <br/>
         <br/>
