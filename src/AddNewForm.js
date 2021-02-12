@@ -26,7 +26,7 @@ const renderCheckbox = ({ input, label }) => (
   </div>
 );
 
-export default function AddNewForm() {
+export  const AddNewForm=(props)=> {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {

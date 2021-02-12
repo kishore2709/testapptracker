@@ -1,17 +1,11 @@
 import React, { Fragment } from "react";
 import Radio from "@material-ui/core/Radio";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
-import TextField from "@material-ui/core/TextField";
 import { Field } from "redux-form";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import Grid from "@material-ui/core/Grid";
 import {KeyboardDatePicker,MuiPickersUtilsProvider} from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
-import AddNewForm from './AddNewForm';
+import {AddNewForm} from './AddNewForm';
+import {renderTextField,radioButton2,renderSelectField} from './utils';
 
 /*
  filedetails: {
@@ -21,67 +15,6 @@ import AddNewForm from './AddNewForm';
       }
 */
 
-const renderFromHelper = ({ touched, error }) => {
-  if (!(touched && error)) {
-    return;
-  } else {
-    return <FormHelperText>{touched && error}</FormHelperText>;
-  }
-};
-
-const renderTextField = ({
-  label,
-  input,
-  meta: { touched, invalid, error },
-  ...custom
-}) => (
-  <TextField
-    label={label}
-    placeholder={label}
-    error={touched && invalid}
-    helperText={touched && error}
-    {...input}
-    {...custom}
-  />
-);
-
-const radioButton2 = ({ input, ...rest }) => (
-  <FormControl>
-    <RadioGroup {...input} {...rest}>
-      <FormControlLabel value="assigned" control={<Radio />} label="Assigned" />
-      <FormControlLabel
-        value="unassigned"
-        control={<Radio />}
-        label="UnAssigned"
-      />
-      <FormControlLabel value="both" control={<Radio />} label="Both" />
-    </RadioGroup>
-  </FormControl>
-);
-
-const renderSelectField = ({
-  input,
-  label,
-  meta: { touched, error },
-  children,
-  ...custom
-}) => (
-  <FormControl error={touched && error}>
-    <InputLabel htmlFor="color-native-simple">{label}</InputLabel>
-    <Select
-      native
-      {...input}
-      {...custom}
-      inputProps={{
-        name: input.name,
-        id: "color-native-simple",
-      }}
-    >
-      {children}
-    </Select>
-    {renderFromHelper({ touched, error })}
-  </FormControl>
-);
 const newFileData =[{
   sid : 2234,
   fno : 2234,
@@ -224,7 +157,7 @@ const FileDetails = (props) => {
             </button>
           </Grid>
           <Grid item xs={1}>
-            <AddNewForm/>
+            <AddNewForm onSubmit={props.handleSubmit}/>
           </Grid>
         </Grid>
       </div>
